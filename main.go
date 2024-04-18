@@ -213,12 +213,12 @@ func formatEventsMessage(events []Event) string {
 	message := "#BOT Devs Norte 🤖\n\n\n"
 	if events == nil || len(events) == 0 {
 		message += "Ops... Nem um evento disponivel no momento, mas não fique triste logo estaremos fazendo mais eventos! 🥺\n\n\n"
-
-	}
-	message += "🎉 Eventos disponíveis: 🎉\n\n\n"
-	for _, event := range events {
-		message += fmt.Sprintf("- %s\n  Local: %s\n  Data: %s\n  URL: %s\n \n\n\n", event.Name, event.Location.City, event.StartDateFormats.Pt, event.URL)
-		message += "----------------------------------------\n\n\n"
+	} else {
+		message += "🎉 Eventos disponíveis: 🎉\n\n\n"
+		for _, event := range events {
+			message += fmt.Sprintf("- %s\n  Local: %s\n  Data: %s\n  URL: %s\n \n\n\n", event.Name, event.Location.City, event.StartDateFormats.Pt, event.URL)
+			message += "----------------------------------------\n\n\n"
+		}
 	}
 	return message
 }
